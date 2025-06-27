@@ -27,7 +27,12 @@
         <span class="menu__badge">31</span>
       </button>
       <button class="menu__item">Контакты</button>
-      <button class="menu__item menu__item--cta" @click="emit('open-modal')">Связаться с нами</button>
+      <button class="menu__item menu__item--cta" @click="emit('open-modal')">
+  <span class="menu__item--cta-text">
+    <span class="cta-desktop">Связаться с нами</span>
+    <span class="cta-mobile">Напишите нам</span>
+  </span>
+</button>
     </div>
       </div>
     <div v-if="isOpen" class="menu__mobile-dropdown">
@@ -54,6 +59,8 @@ const toggleMenu = () => {
 </script>
 
 <style scoped>
+.cta-mobile { display: none; }
+.cta-desktop { display: inline; }
 /* Import Inter font if not globally available */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
 
@@ -194,6 +201,8 @@ const toggleMenu = () => {
 }
 
 @media (max-width: 1000px) {
+  .menu__inner { justify-content: space-between; }
+  .menu__group--right, .menu__logo, .menu__burger { flex: 0; }
   .menu {
     height: auto; /* Reset height for mobile */
   }
@@ -230,9 +239,33 @@ const toggleMenu = () => {
 }
 
 @media (max-width: 1000px) {
+  .cta-desktop { display: none; }
+  .cta-mobile { display: inline; }
+
   .menu__logo-img {
     width: 78px;
     height: auto;
   }
+
+  .menu__item--cta {
+    width: 150px;
+    height: 45px;
+    gap: 10px;
+    border-radius: 30px;
+    padding-top: 13px;
+    padding-right: 26px;
+    padding-bottom: 12px;
+    padding-left: 26px;
+    justify-content: center;
+  }
+  .menu__item--cta-text {
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    white-space: nowrap;
+  }
+
 }
 </style>
