@@ -172,5 +172,11 @@ const services = [
     border-radius: 16px;
     overflow: hidden;
   }
+  .service-card h3 {
+    /* font-size: 24px; */
+    word-break: break-word;
+    white-space: normal;
+    line-height: 1.1;
+  }
 }
 </style>
