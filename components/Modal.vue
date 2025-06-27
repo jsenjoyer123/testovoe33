@@ -161,9 +161,10 @@ const submitForm = () => {
     flex: none;
   }
   .modal {
-    width: 320px;
-    padding-left: 20px;
-    padding-right: 20px;
+    width: auto;
+    max-width: 320px;
+    margin: 0 20px;
+    padding: 2rem 20px;
   }
 }
 </style>
