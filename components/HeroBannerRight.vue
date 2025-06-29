@@ -31,14 +31,15 @@ const flowerImage = Flower;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  clip-path: url('../assets/images/RightBanner.svg');
 }
 .hero-card--right {
   position: relative;
   overflow: hidden;
-  background-image: linear-gradient(rgba(8, 4, 161, 0.8), rgba(8, 4, 161, 0.8)), url('~/assets/images/flower.png');
+  background-image: url('../assets/images/RightBanner.svg');
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  /* background-size: cover; */
+  /* background-position: center; */
   align-items: center;
   text-align: center;
   width: 950px;
@@ -47,6 +48,7 @@ const flowerImage = Flower;
   border-radius: 16px 16px 16px 24px;
   padding: 70px;
   overflow: visible;
+  clip-path: url('../assets/images/RightBanner.svg');
   /* Продленное вправо скругление через clip-path */
   /* clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 39% 99%, 34% 87%, 8% 87%, 0% 77%); */
 }
@@ -97,7 +99,7 @@ const flowerImage = Flower;
 .hero-support {
   position: absolute;
   top: 1rem;
-  right: 1rem;
+  right: 5rem;
   color: #c5ff00;
   text-align: right;
   z-index: 2;
@@ -126,7 +128,7 @@ const flowerImage = Flower;
 .hero-cta {
   position: absolute;
   bottom: 2rem;
-  right: 2rem;
+  right: 6rem;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -168,11 +170,13 @@ const flowerImage = Flower;
     display: none;
   }
   .hero-image {
-    position: static;
-    width: 100%;
-    height: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: auto;
     object-fit: cover;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
   }
   .hero-price-label {
     display: block;

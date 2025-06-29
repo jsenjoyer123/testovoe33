@@ -185,4 +185,10 @@ const services = [
     margin-bottom: 1rem;
   }
 }
+
+@media (min-width: 1001px) {
+  .slider-title {
+    margin-bottom: 1.5rem;
+  }
+}
 </style>

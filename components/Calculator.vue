@@ -3,48 +3,53 @@
     <h2>Посчитайте стоимость вашего сайта:</h2>
     <div class="fields-grid">
     <div class="field">
-      <label for="siteType">Тип сайта</label>
+
       <select id="siteType" v-model="selectedSiteType">
+        <option disabled value="" hidden>Тип сайта</option>
         <option v-for="opt in siteTypes" :key="opt.value" :value="opt.value">
           {{ opt.label }}
         </option>
       </select>
     </div>
     <div class="field">
-      <label for="cmsType">Тип CMS</label>
+
       <select id="cmsType" v-model="selectedCmsType">
+        <option disabled value="" hidden>Тип CMS</option>
         <option v-for="opt in cmsTypes" :key="opt.value" :value="opt.value">
           {{ opt.label }}
         </option>
       </select>
     </div>
     <div class="field">
-      <label for="topic">Тематика сайта</label>
+
       <select id="topic" v-model="selectedTopic">
+        <option disabled value="" hidden>Тематика сайта</option>
         <option v-for="opt in topics" :key="opt.value" :value="opt.value">
           {{ opt.label }}
         </option>
       </select>
     </div>
     <div class="field">
-      <label for="design">Дизайн сайта</label>
+
       <select id="design" v-model="selectedDesign">
+        <option disabled value="" hidden>Дизайн сайта</option>
         <option v-for="opt in designs" :key="opt.value" :value="opt.value">
           {{ opt.label }}
         </option>
       </select>
     </div>
     <div class="field">
-      <label for="extras">Дополнительные услуги</label>
+
       <select id="extras" v-model="selectedExtras">
+        <option disabled value="" hidden>Дополнительные услуги</option>
         <option v-for="opt in extras" :key="opt.value" :value="opt.value">
           {{ opt.label }}
         </option>
       </select>
     </div>
     <div class="field comment-field">
-      <label for="comments">Комментарии к проекту</label>
-      <textarea id="comments" v-model="comments" rows="4" placeholder="Ваши комментарии"></textarea>
+
+      <textarea id="comments" v-model="comments" rows="4" placeholder="Комментарии к проекту"></textarea>
     </div>
     </div>
     <div class="total">
@@ -56,7 +61,7 @@
   <label for="policy" class="custom-checkbox-label">
     <input type="checkbox" id="policy" v-model="policyAgreement" class="custom-checkbox-input" />
     <span class="custom-checkbox"></span>
-    <span class="custom-checkbox-text">Нажимая кнопку, я соглашаюсь с политикой конфиденциальности и даю разрешение на обработку моих персональных данных.</span>
+    <span class="custom-checkbox-text privacy-text">Нажимая кнопку, я соглашаюсь с политикой конфиденциальности и даю разрешение на обработку моих персональных данных.</span>
   </label>
 </div>
   </div>
@@ -96,11 +101,11 @@ const extras = ref<Option[]>([
   { label: 'Контент-менеджмент', value: 'cms', price: 20000 },
 ]);
 
-const selectedSiteType = ref(siteTypes.value[0].value);
-const selectedCmsType = ref(cmsTypes.value[0].value);
-const selectedTopic = ref(topics.value[0].value);
-const selectedDesign = ref(designs.value[0].value);
-const selectedExtras = ref(extras.value[0].value);
+const selectedSiteType = ref('');
+const selectedCmsType = ref('');
+const selectedTopic = ref('');
+const selectedDesign = ref('');
+const selectedExtras = ref('');
 const comments = ref('');
 
 const total = computed(() => {
@@ -126,7 +131,7 @@ const openModal = () => emit('open-modal', total.value);
   background-image: linear-gradient(rgba(30, 30, 30, 0.8), rgba(30, 30, 30, 0.8)), url('~/assets/images/claclback.png');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: 0 0;
   border-radius: 16px;
   padding: 2rem;
   margin-bottom: 1.5rem;
@@ -143,7 +148,7 @@ const openModal = () => emit('open-modal', total.value);
   left: -128px;
   background-image: url('~/assets/images/claclback.png');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 250% 250%;
   background-position: center;
   
   mask: url('~/assets/images/claclback.png') no-repeat center/cover;
@@ -157,7 +162,7 @@ const openModal = () => emit('open-modal', total.value);
   position: relative;
   z-index: 1;
 }
-.calculator::before { display: none !important; }
+  .calculator::before { display: none !important; }
 .calculator h2 {
   font-size: 1.75rem;
   font-weight: 600;
@@ -189,6 +194,14 @@ const openModal = () => emit('open-modal', total.value);
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   outline: none;
 }
+.calculator select {
+  appearance: none;
+  background-image: url('@/assets/images/calc-arrow.png');
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1rem;
+  padding-right: 2rem;
+}
 .field textarea {
   resize: none;
   min-height: 5rem;
@@ -214,7 +227,7 @@ const openModal = () => emit('open-modal', total.value);
   font-size: 1.5rem;
 }
 button {
-  margin-top: 1.5rem;
+  /* margin-top: 1.5rem; */
   width: 100%;
   padding: 0.75rem;
   font-size: 1rem;
@@ -294,6 +307,10 @@ button:disabled {
   grid-column: 3;
   grid-row: span 2;
 }
+/* Ensure comment field has the same width as site topic field */
+textarea[name="comments"] {
+  width: 100%;
+}
 @media (max-width: 1000px) {
   .fields-grid {
     grid-template-columns: 1fr;
@@ -308,5 +325,57 @@ button:disabled {
     margin-top: 1rem;
   }
 }
-
+@media (min-width: 1024px) {
+  .calculator h2 {
+    font-family: Golos Text;
+    font-weight: 600;
+    font-size: 44px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+  }
+  .calculator .field label,
+  .calculator .field select,
+  .calculator .field textarea {
+    font-family: Golos Text;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+  }
+  .calculator .total-label {
+    font-family: Golos Text;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+  }
+  .calculator .total-amount {
+    font-family: Golos Text;
+    font-weight: 500;
+    font-size: 72px;
+    line-height: 100%;
+    letter-spacing: 0%;
+  }
+  .calculator .privacy-text {
+    font-family: Golos Text;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+  }
+  button {
+    font-family: Golos Text;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: 0%;
+  }
+  .calculator .field.comment-field textarea {
+    min-height: 10rem;
+  }
+}
 </style>
