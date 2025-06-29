@@ -7,7 +7,7 @@
         <div class="hero-price">320 000 ₽</div>
       </div>
       <button class="hero-cta" @click="emit('open-modal')">
-        <span class="arrow-icon">→</span>
+        <span class="arrow-icon"><img :src="arrow" alt="arrow" /></span>
         Заказать
       </button>
     </div>
@@ -15,6 +15,7 @@
 </template>
 
 <script setup lang="ts">
+import arrow from '~/assets/images/arrow.png';
 const emit = defineEmits(["open-modal"]);
 </script>
 
@@ -120,5 +121,11 @@ const emit = defineEmits(["open-modal"]);
   background: #c5ff00;
   color: #000;
   font-size: 0.875rem;
+}
+.hero-cta .arrow-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: scale(0.5);
 }
 </style>

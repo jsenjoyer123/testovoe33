@@ -11,28 +11,26 @@
     <!-- Thumbnails hidden on mobile -->
     <button class="hero-cta hero-cta--projects">
       Наши проекты
-      <span class="arrow-icon">↗</span>
+      <span class="arrow-icon"><img :src="arrow" alt="arrow" /></span>
     </button>
   </div>
 </template>
 
 <script setup lang="ts">
-import project1 from '~/assets/images/project1.jpg'
-import project2 from '~/assets/images/project2.png'
-import project3 from '~/assets/images/project3.jpg'
-import project4 from '~/assets/images/project4.png'
-import project5 from '~/assets/images/project5.jpg'
+import arrow from '~/assets/images/arrow.png';
 
-const thumbnails = [
-  project1,
-  project2,
-  project3,
-  project4,
-  project5
-]
 </script>
 
 <style scoped>
+.hero-badge {
+  font-family: Golos Text;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 120%;
+  letter-spacing: 0%;
+  margin-top: 10px;
+}
+
 .hero-card {
   width: 90%;
   height: 289px;
@@ -42,12 +40,18 @@ const thumbnails = [
   overflow: hidden;
   background: linear-gradient(135deg, #1500FF 0%, #6C5AE0 100%);
   color: #fff;
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 .hero-cta--projects {
+  font-family: Golos Text;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  margin-top: -20px;
   width: 87%;
   display: inline-flex;
   justify-content: center;
@@ -56,16 +60,26 @@ const thumbnails = [
   height: 44px;
   padding: 0 1rem;
   background: #fff;
-  color: #5c6cff;
+  color: #0D08A4;
   border: none;
   border-radius: 9999px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  margin-top: -10px;
   cursor: pointer;
   position: relative;  /* add to anchor arrow positioning */
 }
 
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  width: 262px;
+  height: 144px;
+  gap: 20px;
+  font-family: 'Golos Text';
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 120%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+}
 
 .arrow-icon {
   width: 45px;
@@ -77,16 +91,15 @@ const thumbnails = [
   left: 100%;
   top: 50%;
   transform: translateY(-50%);
-
-
-
   border-radius: 50%;
   background: #c5ff00;
   color: #000;
   font-size: 0.875rem;
-
-
-
-
+}
+.arrow-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: rotate(-45deg) scale(0.5);
 }
 </style>

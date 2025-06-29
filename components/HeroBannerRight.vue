@@ -5,7 +5,7 @@
     <p class="hero-price-label">ваша цена</p>
     <div class="hero-price">320 000 ₽</div>
     <button class="hero-cta" @click="emit('open-modal')">
-      <span class="arrow-icon">→</span>
+      <span class="arrow-icon"><img :src="arrow" alt="arrow" /></span>
       Заказать
     </button>
   </div>
@@ -13,6 +13,7 @@
 
 <script setup lang="ts">
 import Flower from '~/assets/images/flower.png';
+import arrow from '~/assets/images/arrow.png';
 const emit = defineEmits(["open-modal"]);
 const flowerImage = Flower;
 </script>
@@ -46,7 +47,19 @@ const flowerImage = Flower;
   border-radius: 16px 16px 16px 24px;
   padding: 70px;
   overflow: visible;
+  /* Продленное вправо скругление через clip-path */
+  /* clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 39% 99%, 34% 87%, 8% 87%, 0% 77%); */
 }
+
+
+
+
+
+
+
+
+
+
 .hero-card--right::before {
   content: "Топ-10 самых креативных\Aразработчиков сайтов в России";
   white-space: pre-line;
@@ -55,12 +68,27 @@ const flowerImage = Flower;
   bottom: 0;
   left: 0;
   background: #F2F2F4;
-  border-radius: 0 2rem 0 0;
-  /* clip-path: inset(0 0 0 0 round 0 2rem 0 0); */
+  z-index: 1000;
   padding: 0.5rem;
   font-size: 1rem;
   color: #000;
+
+  clip-path: polygon(0% 1%, 14% 17%, 91% 18%, 100% 100%, 0% 99%);
+  /* clip-path: ellipse(25% 27% at 50% 50%); */
+  /* clip-path: ellipse(25% 27% at 50% 50%); */
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 .hero-card--right > * {
   position: relative;
@@ -77,7 +105,7 @@ const flowerImage = Flower;
 .hero-image {
   position: absolute;
   top: 0;
-  right: -9rem;
+  right: -2rem;
   height: 100%;
   object-fit: cover;
   z-index: 1;
@@ -165,5 +193,11 @@ const flowerImage = Flower;
 }
 @media (max-width: 1000px) {
   .hero-card--right::before { display: none; }
+}
+.hero-cta .arrow-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: scale(0.5);
 }
 </style>

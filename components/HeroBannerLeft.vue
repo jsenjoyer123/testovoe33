@@ -21,12 +21,13 @@
     <!-- Mobile-only CTA -->
     <button class="hero-cta hero-cta--projects">
       Наши проекты
-      <span class="arrow-icon">↗</span>
+      <span class="arrow-icon"><img :src="arrow" alt="arrow" /></span>
     </button>
   </div>
 </template>
 
 <script setup lang="ts">
+import arrow from '~/assets/images/arrow.png';
 import project1 from '~/assets/images/project1.jpg';
 import project2 from '~/assets/images/project2.png';
 import project3 from '~/assets/images/project3.jpg';
@@ -133,7 +134,7 @@ const thumbnails = [
   
 }
 .hero-thumbnails::after {
-  content: '↗';
+  content: '';
   position: absolute;
   top: -8px;
   right: -8px;
@@ -142,9 +143,8 @@ const thumbnails = [
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
-  color: #000;
-  background: #c5ff00;
+  background: #c5ff00 url('~/assets/images/arrow.png') center/50% no-repeat;
+  transform: rotate(-45deg);
   border-radius: 50%;
 }
 .hero-cta {
@@ -244,5 +244,11 @@ const thumbnails = [
     height: 450px;
     padding: 1.5rem;
   }
+}
+.hero-cta--projects .arrow-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: rotate(-45deg);
 }
 </style>
