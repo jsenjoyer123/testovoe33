@@ -173,10 +173,16 @@ const services = [
     overflow: hidden;
   }
   .service-card h3 {
-    /* font-size: 24px; */
+    font-family: 'Golos Text', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 120%;
+    letter-spacing: 0%;
     word-break: break-word;
     white-space: normal;
-    line-height: 1.1;
+  }
+  .slider-title {
+    margin-bottom: 1rem;
   }
 }
 </style>

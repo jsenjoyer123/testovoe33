@@ -160,6 +160,10 @@ const submitForm = () => {
     width: 100%;
     flex: none;
   }
+  .modal__field input {
+    width: 100%;
+    box-sizing: border-box;
+  }
   .modal {
     width: auto;
     max-width: 320px;
