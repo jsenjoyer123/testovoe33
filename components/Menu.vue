@@ -1,7 +1,7 @@
 <template>
   <nav class="menu">
     <div class="menu__inner">
-      <button class="menu__burger" @click="toggleMenu">
+      <button v-if="!isModalOpen" class="menu__burger" @click="toggleMenu">
         <span>&#9776;</span>
       </button>
     <div class="menu__group menu__group--left">
@@ -51,6 +51,7 @@
 import { ref } from 'vue';
 import logo from '~/assets/images/logo.png';
 import mobileLogo from '~/assets/images/mobilelogo.png';
+const { isModalOpen } = defineProps<{ isModalOpen: boolean }>();
 const emit = defineEmits(['open-modal']);
 const isOpen = ref(false);
 const toggleMenu = () => {

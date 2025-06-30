@@ -1,5 +1,5 @@
 <template>
-  <Menu @open-modal="onOpenModal" />
+  <Menu :isModalOpen="showModal" @open-modal="onOpenModal" />
   <div class="content-wrapper">
     <div class="mobile-wrapper">
       <div class="desktop-only">
