@@ -214,7 +214,7 @@ const toggleMenu = () => {
     font-size: 24px;
     cursor: pointer;
     margin-right: 16px;
-    z-index: 10000;
+    z-index: 1;
   }
   .menu__group.menu__group--left,
   .menu__group.menu__group--right button:not(.menu__item--cta) {
