@@ -20,40 +20,27 @@ const flowerImage = Flower;
 
 <style scoped>
 .hero-card {
-  border-radius: 16px;
+  /* border-radius: 16px; */
   padding: 2rem;
   box-sizing: border-box;
   flex: 1;
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
   background: linear-gradient(135deg, #5c6cff 0%, #8d2bff 100%);
   color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  clip-path: url('../assets/images/RightBanner.svg');
 }
 .hero-card--right {
-  position: relative;
-  overflow: hidden;
-  background-image: url('../assets/images/RightBanner.svg');
-  background-repeat: no-repeat;
-  /* background-size: cover; */
-  /* background-position: center; */
+  flex: 1;
+  /* Responsive flex layout */
+  background: url('../assets/images/RightBanner.svg') center/cover no-repeat;
+  border-radius: 16px 16px 16px 0px;
+  padding: 2rem;
   align-items: center;
   text-align: center;
-  width: 950px;
-  height: 600px;
-  justify-content: space-between;
-  border-radius: 16px 16px 16px 24px;
-  padding: 70px;
-  overflow: visible;
-  clip-path: url('../assets/images/RightBanner.svg');
-  /* Продленное вправо скругление через clip-path */
-  /* clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 39% 99%, 34% 87%, 8% 87%, 0% 77%); */
 }
-
-
 
 
 
@@ -68,14 +55,13 @@ const flowerImage = Flower;
   text-align: left;
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: 1rem;
   background: #F2F2F4;
   z-index: 1000;
-  padding: 0.5rem;
   font-size: 1rem;
   color: #000;
 
-  clip-path: polygon(0% 1%, 14% 17%, 91% 18%, 100% 100%, 0% 99%);
+  /* clip-path: polygon(0% 1%, 14% 17%, 91% 18%, 100% 100%, 0% 99%); */
   /* clip-path: ellipse(25% 27% at 50% 50%); */
   /* clip-path: ellipse(25% 27% at 50% 50%); */
 }
@@ -98,8 +84,8 @@ const flowerImage = Flower;
 }
 .hero-support {
   position: absolute;
-  top: 1rem;
-  right: 5rem;
+  top: 3rem;
+  right: 2rem;
   color: #c5ff00;
   text-align: right;
   z-index: 2;
@@ -107,7 +93,7 @@ const flowerImage = Flower;
 .hero-image {
   position: absolute;
   top: 0;
-  right: -2rem;
+  right: -8rem;
   height: 100%;
   object-fit: cover;
   z-index: 1;
@@ -127,8 +113,9 @@ const flowerImage = Flower;
 }
 .hero-cta {
   position: absolute;
-  bottom: 2rem;
-  right: 6rem;
+  bottom: 0;
+  right: 0;
+  margin: 1rem;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -136,6 +123,8 @@ const flowerImage = Flower;
   background: #fff;
   color: #000;
   border-radius: 9999px;
+  border: none;
+  outline: none;
   z-index: 2;
   cursor: pointer;
 }

@@ -36,10 +36,7 @@ onBeforeUnmount(() => { window.removeEventListener('resize', checkMobile); });
   gap: 1rem;
   overflow: hidden;
 }
-.hero-banner__content > .hero-card--right {
-  position: relative;
-  left: 70px;
-}
+
 
 @media (max-width: 900px) {
   .hero-banner__content {
