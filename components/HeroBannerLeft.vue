@@ -58,6 +58,9 @@ const thumbnails = [
   flex-direction: column;
   justify-content: space-between;
 }
+.hero-card--left {
+  width: clamp(300px, 45%, 600px);
+}
 .hero-badge {
   font-family: 'Golos Text', sans-serif;
   font-weight: 400;
@@ -160,6 +163,85 @@ const thumbnails = [
 .hero-cta:hover {
   background: #e6e6e6;
 }
+@media (max-width: 1250px) {
+  .hero-thumbnails img:nth-child(5) {
+    display: none;
+  }
+}
+
+@media (max-width: 1150px) {
+  .hero-thumbnails img:nth-child(4),
+  .hero-thumbnails img:nth-child(5) {
+    display: none;
+  }
+}
+
+@media (max-width: 1050px) {
+  .hero-thumbnails img:nth-child(3),
+  .hero-thumbnails img:nth-child(4),
+  .hero-thumbnails img:nth-child(5) {
+    display: none;
+  }
+}
+
+@media (max-width: 950px) {
+  .hero-thumbnails img:nth-child(2),
+  .hero-thumbnails img:nth-child(3),
+  .hero-thumbnails img:nth-child(4),
+  .hero-thumbnails img:nth-child(5) {
+    display: none;
+  }
+}
+
+/* Responsive tweaks: refine layout from 1250px to 1000px */
+@media (max-width: 1250px) {
+  .hero-card--left {
+    padding: 2.5rem;
+  }
+  .hero-card--left .hero-title {
+    font-size: 3rem;
+  }
+  .hero-card--left .hero-badge {
+    font-size: 18px;
+  }
+  .hero-thumbnails {
+    height: clamp(90px, 11vw, 120px);
+    gap: 0.4rem;
+  }
+}
+
+@media (max-width: 1150px) {
+  .hero-card--left {
+    padding: 2rem;
+  }
+  .hero-card--left .hero-title {
+    font-size: 2.5rem;
+  }
+  .hero-card--left .hero-badge {
+    font-size: 16px;
+  }
+  .hero-thumbnails {
+    height: clamp(80px, 10vw, 110px);
+    gap: 0.35rem;
+  }
+}
+
+@media (max-width: 1050px) {
+  .hero-card--left {
+    padding: 1.5rem;
+  }
+  .hero-card--left .hero-title {
+    font-size: 2rem;
+  }
+  .hero-card--left .hero-badge {
+    font-size: 14px;
+  }
+  .hero-thumbnails {
+    height: clamp(80px, 10vw, 100px);
+    gap: 0.3rem;
+  }
+}
+
 @media (max-width: 900px) {
   .hero-card {
     padding: 1.5rem;
@@ -234,15 +316,21 @@ const thumbnails = [
 }
 @media (min-width: 900px) and (max-width: 1000px) {
   .hero-card--left {
-    width: 900px;
+    /* width: 900px; */
     height: 450px;
   }
 }
 @media (max-width: 1000px) {
   .hero-card--left {
-    width: 100%;
+    /* width: 100%; */
     height: 450px;
     padding: 1.5rem;
+  }
+}
+@media (min-width: 1200px) {
+  .hero-card--left {
+    width: clamp(300px, 45%, 600px);
+    min-height: 600px;
   }
 }
 .hero-cta--projects .arrow-icon img {

@@ -35,7 +35,7 @@ const flowerImage = Flower;
 .hero-card--right {
   flex: 1;
   /* Responsive flex layout */
-  background: url('../assets/images/RightBanner.svg') center/cover no-repeat;
+  background: url('~/assets/images/RightBanner.svg') center/cover no-repeat;
   border-radius: 16px 16px 16px 0px;
   padding: 2rem;
   align-items: center;

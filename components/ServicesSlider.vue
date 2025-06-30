@@ -74,7 +74,7 @@ const services = [
 </script>
 
 <style scoped>
-.services-block { margin: 1rem 0; }
+.services-block { margin: 1rem 0; padding: 1rem 1rem 0; }
 .slider-title {
   text-align: left;
   font-size: 2rem;
@@ -118,7 +118,7 @@ const services = [
   border-radius: 16px; /* Corner/medium radius */
   background-color: #fff;
   overflow: hidden;
-  width: 413px;
+  width: clamp(300px, 30vw, 413px);
 
   height: 400px !important;
 }
@@ -136,7 +136,7 @@ const services = [
 .service-card h3 {
   font-family: 'Golos Text', sans-serif;
   font-weight: 500;
-  font-size: 44px;
+  font-size: clamp(24px, 4vw, 44px);
   line-height: 100%;
   letter-spacing: 0%;
   background: linear-gradient(108.96deg, #0804A1 -2.15%, #9278FA 61.85%);
@@ -148,7 +148,7 @@ const services = [
 .service-card p {
   font-family: 'Golos Text', sans-serif;
   font-weight: 400;
-  font-size: 20px;
+  font-size: clamp(16px, 2vw, 20px);
   line-height: 140%;
   letter-spacing: 0%;
   color: #333;
@@ -161,6 +161,9 @@ const services = [
 }
 
 @media (max-width: 1000px) {
+  .services-block{
+    padding: 0;
+  }
   .services-slider,
   .slider-controls {
     display: none;
@@ -182,13 +185,17 @@ const services = [
     white-space: normal;
   }
   .slider-title {
-    margin-bottom: 1rem;
+    margin: 1rem 0 1rem;
   }
+  
 }
 
 @media (min-width: 1001px) {
   .slider-title {
     margin-bottom: 1.5rem;
+  }
+  .slider-controls {
+    margin-left: 0;
   }
 }
 </style>

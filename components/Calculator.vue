@@ -311,6 +311,13 @@ button:disabled {
 textarea[name="comments"] {
   width: 100%;
 }
+
+@media (max-width: 1275px) and (min-width: 1000px) {
+  .calculator {
+    margin: 0 1rem 1.5rem;
+  }
+}
+
 @media (max-width: 1000px) {
   .fields-grid {
     grid-template-columns: 1fr;
@@ -325,7 +332,7 @@ textarea[name="comments"] {
     margin-top: 1rem;
   }
 }
-@media (min-width: 1024px) {
+@media (min-width: 1000px) {
   .calculator h2 {
     font-family: Golos Text;
     font-weight: 600;
